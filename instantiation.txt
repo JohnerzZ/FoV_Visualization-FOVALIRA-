@@ -1,0 +1,4 @@
+posX,posY,posZ,rotX,rotY,rotZ, viewRadius, viewAngle, verticalViewRadius, verticalViewAngle, meshResolution, horizontalOffsetResolution, verticalMeshResolution, verticalOffsetResolution, edgeResolveIterations, edgeDstThreshold
+-0.1643515,8.467638,1.836185,13.0,1.334,0.0,25,60,25,50,1,0.3,1,0.3,4,0.5
+-0.177712,8.437637,-1.744475,13.0,181.334,0.0,25,60,25,50,1,0.3,1,0.3,4,0.5
+-7.374092,8.897636,-0.2165295,13.0,-88.665,0.0,25,120,25,50,1,0.3,1,0.3,4,0.5
