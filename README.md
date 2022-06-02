@@ -28,7 +28,7 @@ To spawn sensors in determinate positions on the scene, the instantiation.txt fi
 
 1. Open the Commit2.unity scene (If it is not already open).
 2. Deactivate the objects Sensor, Sensor (1) and Sensor (2) if they are active.
-3. Configure the instantiation.txt file according to the desired experiment. For more information, read the "Configure" section in the report. A typical instantiation configuration is written in typical_instantiation.txt. The user can copy its contents in instantiation.txt as a demo. If the instantiation.txt cannot be configured while unity is opened, then you might need to close it to configure the file and then reopen it.
+3. Configure the instantiation.txt file according to the desired experiment. For more information, read the "Configure" section in the report. A typical instantiation configuration is written in typical_instantiation.txt. You can copy its contents in instantiation.txt as a demo. If the instantiation.txt cannot be configured while unity is opened, then you might need to close it to configure the file and then reopen it.
 4. Press play to start the simulation.
 
 [Unity Development Platform]: <https://unity3d.com/get-unity/download>
