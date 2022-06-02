@@ -1,4 +1,4 @@
-# Visualizing the Field of View of Optical or Lidar sensors
+# Visualizing the Field of View of Optical or Lidar Sensors
 # Using the Unity Development Platform
 ---
 ## Overview
@@ -24,6 +24,7 @@ git clone https://bitbucket.org/csl_legged/mini-project-fov_visualisation/src/ma
 ## Instantiate sensors
 
 To spawn sensors in determinate positions on the scene, the instantiation.txt file should be used.
+
 1. Open the Commit2.unity scene (If it is not already open).
 2. Deactivate the objects Sensor, Sensor (1) and Sensor (2) if they are active.
 3. Configure the instantiation.txt file according to the desired experiment. For more information, read the "Configure" section in the report. A typical instantiation configuration is written in typical_instantiation.txt. The user can copy its contents in instantiation.txt as a demo. If the instantiation.txt cannot be configured while unity is opened, then you might need to close it to configure the file and then reopen it.
