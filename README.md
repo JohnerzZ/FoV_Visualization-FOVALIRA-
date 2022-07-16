@@ -18,9 +18,9 @@ git clone https://bitbucket.org/csl_legged/mini-project-fov_visualisation/src/ma
 ## Quick Demo
 
 1. To the left of the scene tab, on the Hierarchy tab some object names can be seen in fainted white color. These objects are also present in the scene but they are deactivated. The user can select any of these from the Hierarchy tab. Thus, the Inspector tab on the right side of the window will display information about the selected object. To activate the selected object, the user can check the checkbox near the name of the selected object in the Inspector tab.
-![live_scene](images/live_scene.png)
 2. Activate the objects Sensor, Sensor (1) and Sensor (2).
 3. Start the simulation by pressing play (the play button is usually above the scene tab).
+![live_scene](images/live_scene.png)
 
 ## Instantiate sensors
 
@@ -28,7 +28,7 @@ To spawn sensors in determinate positions on the scene, the instantiation.txt fi
 
 1. Open the Commit2.unity scene (If it is not already open).
 2. Deactivate the objects Sensor, Sensor (1) and Sensor (2) if they are active.
-3. Configure the instantiation.txt file according to the desired experiment. For more information, read the "Configure" section in the report. A typical instantiation configuration is written in typical_instantiation.txt. The user can copy its contents in instantiation.txt as a demo. If the instantiation.txt cannot be configured while unity is opened, then you might need to close it to configure the file and then reopen it.
+3. Configure the instantiation.txt file according to the desired experiment. For more information, read the "Configuration" section in the report. A typical instantiation configuration is written in typical_instantiation.txt. You can copy its contents in instantiation.txt as a demo. If the instantiation.txt cannot be configured while unity is opened, then you might need to close it to configure the file and then reopen it.
 4. Press play to start the simulation.
 
 [Unity Development Platform]: <https://unity3d.com/get-unity/download>
