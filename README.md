@@ -22,6 +22,7 @@ git clone https://bitbucket.org/csl_legged/mini-project-fov_visualisation/src/ma
 3. Activate the objects Sensor, Sensor (1), Sensor (2), Sensor (3) and Sensor (4).
 4. Start the simulation by pressing play (the play button is usually above the scene tab).
 5. The Laelaps robot will start walking in the scene. Targets in its field of view will be highlighted in red color. If you wish to stop the robot's movement at any time, expand the LaelapsII object in the Hierarchy. Then click its child, Laelaps. In the Inspector tab, uncheck the animator checkbox that will appear.
+
 ![live_scene](images/live_scene.png)
 
 ## Instantiate sensors
