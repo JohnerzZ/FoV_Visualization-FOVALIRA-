@@ -9,6 +9,7 @@ public class InstantiateFromFile : MonoBehaviour {
 
     public int currentPiece = 0;
     public GameObject sensorPrefab;
+    public GameObject parent;    //the parent of the sensors in our case will be the laelaps object prefab.
     public StreamReader sr = new StreamReader(@"instantiation.txt");
     public float posX, posY, posZ, pieceRotationX, pieceRotationY, pieceRotationZ, viewRadius, viewAngle, verticalViewRadius, verticalViewAngle, meshResolution, horizontalOffsetResolution, verticalMeshResolution, verticalOffsetResolution, edgeResolveIterations, edgeDstThreshold;
 
@@ -41,7 +42,8 @@ public class InstantiateFromFile : MonoBehaviour {
           edgeDstThreshold = (float.Parse(theLine[15]));
 
           //Instantiate sensor at given position
-          var sensor = Instantiate(sensorPrefab, new Vector3(posX, posY, posZ), Quaternion.Euler(pieceRotationX, pieceRotationY, pieceRotationZ));
+          var sensor = Instantiate(sensorPrefab, parent.transform.position + posX*parent.transform.right + posY*parent.transform.up + posZ*parent.transform.forward, parent.transform.rotation, parent.transform);
+          sensor.transform.Rotate( new Vector3(pieceRotationX, pieceRotationY, pieceRotationZ) );
           sensor.SetActive(true);
           sensor.name = ("sensor" + currentPiece);
 

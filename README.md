@@ -7,7 +7,7 @@ The process of designing a perception system for a robot involves deciding what 
 
 ## Installation
 
-1. Download and install the [Unity Development Platform]. The version of Unity used for this project was Unity 2020.3.27f1 (64-bit).
+1. Download and install the [Unity Development Platform]. The version of Unity used for this project is Unity 2020.3.27f1 (64-bit).
 2. Download the FOV_Visualization Tool:
 ```sh
 git clone https://bitbucket.org/csl_legged/mini-project-fov_visualisation/src/master.git
@@ -17,9 +17,12 @@ git clone https://bitbucket.org/csl_legged/mini-project-fov_visualisation/src/ma
 
 ## Quick Demo
 
-1. To the left of the scene tab, on the Hierarchy tab some object names can be seen in fainted white color. These objects are also present in the scene but they are deactivated. The user can select any of these from the Hierarchy tab. Thus, the Inspector tab on the right side of the window will display information about the selected object. To activate the selected object, the user can check the checkbox near the name of the selected object in the Inspector tab.
-2. Activate the objects Sensor, Sensor (1) and Sensor (2).
-3. Start the simulation by pressing play (the play button is usually above the scene tab).
+1. To the left of the scene tab, on the Hierarchy tab the LaelapsII object can be seen highlighted in light blue color. Expand the object to reveal the Laelaps child object. Expand this as well.
+2. Expanding the Laelaps object will reveal several child objects. The names of the sensor objects can be seen in fainted white color. That means that these objects are also present in the scene but they are deactivated. Select any one of these sensor objects from the Hierarchy tab. You will see that the Inspector tab on the right side of the Game window will display information about the selected object. To activate the selected object, check the checkbox near the name of the selected object in the Inspector tab.
+3. Activate the objects Sensor, Sensor (1), Sensor (2), Sensor (3) and Sensor (4).
+4. Start the simulation by pressing play (the play button is usually above the scene tab).
+5. The Laelaps robot will start walking in the scene. Targets in its field of view will be highlighted in red color. If you wish to stop the robot's movement at any time, expand the LaelapsII object in the Hierarchy. Then click its child, Laelaps. In the Inspector tab, uncheck the animator checkbox that will appear.
+
 ![live_scene](images/live_scene.png)
 
 ## Instantiate sensors
@@ -27,8 +30,10 @@ git clone https://bitbucket.org/csl_legged/mini-project-fov_visualisation/src/ma
 To spawn sensors in determinate positions on the scene, the instantiation.txt file should be used.
 
 1. Open the Commit2.unity scene (If it is not already open).
-2. Deactivate the objects Sensor, Sensor (1) and Sensor (2) if they are active.
+2. Deactivate the objects Sensor, Sensor (1), Sensor (2), Sensor (3) and Sensor (4) if they are active.
 3. Configure the instantiation.txt file according to the desired experiment. For more information, read the "Configuration" section in the report. A typical instantiation configuration is written in typical_instantiation.txt. You can copy its contents in instantiation.txt as a demo. If the instantiation.txt cannot be configured while unity is opened, then you might need to close it to configure the file and then reopen it.
-4. Press play to start the simulation.
+4. After configuring the instantiation.txt file, open the Commit2.unity scene and ress play to start the simulation.
+
+To Further modify the FOV_Visualization tool to suit your needs, read the "Usage" and "How it was made" sections of the report.
 
 [Unity Development Platform]: <https://unity3d.com/get-unity/download>
