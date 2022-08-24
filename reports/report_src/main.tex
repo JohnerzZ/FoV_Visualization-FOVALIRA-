@@ -99,12 +99,14 @@ Activating the three objects labeled as Sensor, Sensor (1) and Sensor (2) and cl
 
 \subsection{Configuration}
 
-The user can configure several parameters in order to simulate different sensor setups. Specifically, the list of parameters that can be configured for each sensor is as follows:
+---edit here---
+
+The user can configure several parameters in order to simulate different sensor setups. The list of parameters that can be configured for each sensor is as follows:
 
 \begin{itemize}
 
-\item position(x,y,z) : The position of the sensor in the scene, relative to the center of the scene (Which for the commit2.unity scene is also the center of the plane, as well as the center of the laelaps robot urdf). Values are in decimeters.
-\item rotation(x,y,z) :  The rotation of the sensor in the scene, relative to the center of the scene (Which for the commit2.unity scene is also the center of the plane, as well as the center of the laelaps robot urdf). Values are in degrees.
+\item position(x,y,z) : The position of the sensor in the scene, relative to the laelaps robot transform. Values are in decimeters.
+\item rotation(x,y,z) :  The rotation of the sensor in the scene, relative to its own transform. Values are in degrees.
 \item View Radius : The range of the lidar while scanning horizontally (or max range for camera). 
 \item View Angle : The horizontal view angle of the lidar (or camera).
 \item Vertical View Radius : The range of the lidar while scanning vertically (or max range for camera).
@@ -122,12 +124,20 @@ There are two ways to easily set the position and rotation of the sensors on the
 
 \subsubsection{Configuration using the instantiation file}
 
-The "instantiation.txt" file is located inside the project folder. Essentially, the instantiation file represents an array. The elements of the array inside each row are separated by commas as the file is in csv format. The first row contains the headers of each column. Each row added after the first will cause the instantiation of a new sensor on the scene. The new sensor's parameters will be the elements of the new row in correspondence with the headers. As an example, the "typical\_instantiation.txt" can be used to instantiate three sensors at the positions and rotations of the preexisting sensors  Sensor, Sensor (1) and Sensor (2) in the object hierarchy. These sensors are also parameterized identically to the preexisting sensors in the object Hierarchy. To try the instantiation file, the user can copy the contents of "typical\_instantiation.txt" inside the "instantiation.txt" file, deactivate the preexisting sensors in the scene and run the simulation. If the "instantiation.txt" file cannot be edited while the Unity Development Platform is open, then the user might need to close it when editing and then open it again to run the simulation. 
+The "instantiation.txt" file is located inside the project folder. Essentially, the instantiation file represents an array. The elements of the array inside each row are separated by commas as the file is in csv format. The first row contains the headers of each column. Each row added after the first will cause the instantiation of a new sensor on the scene. The new sensor's parameters will be the elements of the new row in correspondence with the headers. As an example, the "typical\_instantiation.txt" can be used to instantiate three sensors on the laelaps robot, at predefined positions and rotations. These sensors are also parameterized arbitrarily. To try the instantiation file, the user can copy the contents of "typical\_instantiation.txt" inside the "instantiation.txt" file, deactivate the preexisting sensors in the scene and run the simulation. If the "instantiation.txt" file cannot be edited while the Unity Development Platform is open, then the user might need to close it when editing and then open it again to run the simulation. 
 
 
 \subsubsection{Configuration using the Unity Editor}
 
-In the unity editor, the user can activate, deactivate or duplicate the preexisting sensors Sensor, Sensor (1) and Sensor (2) which can be found in the object Hierarchy. Clicking on a sensor object triggers the inspector to show information about that object. The user can configure all the aforementioned parameters by editing the field of view script for each sensor directly in the Inspector. In this case, the "instantiation.txt" file should be empty except for the first row (except, of course, if the user desires to both have sensors preexisting in the scene and also instantiate some more sensors when starting the simulation). To change the position and rotation of the sensors on the scene, the user can use the move and rotate tools that the Unity Editor offers.
+In the unity editor, the user can activate, deactivate or duplicate the preexisting sensors Sensor, Sensor (1), Sensor (2), Sensor (3) and Sensor (4) which can be found in the object Hierarchy. Clicking on a sensor object triggers the inspector to show information about that object. The user can configure all the aforementioned parameters by editing the field of view script for each sensor directly in the Inspector. In this case, the "instantiation.txt" file should be empty except for the first row (except, of course, if the user desires to both have sensors preexisting in the scene and also instantiate some more sensors when starting the simulation). To change the position and rotation of the sensors on the scene, the user can use the move and rotate tools that the Unity Editor offers. To duplicate a sensor, the user can hold alt while translating a sensor in the scene. That will leave the old sensor object in place, and instantiate a new one. 
+
+\subsubsection{Configuring the robot's animation}
+
+Locating the Laelaps object - which is a child of the LaelapsII object - in the object Hierarchy and clicking on it will open the inspector tab. The animator component which controlls the animation of the body of the laelaps robot will be active in this tab. To deactivate it, the user can simply click on the checkbox next to its name. The same can be done for the robot's legs: Each leg has two children objects named TopLeg and BottomLeg. Both have animator components which can be deactivated from the Inspector tab.
+
+To access the animator controller for the body or any of the legs of the robot, the user can open the inspector of the desired object by clicking on it. Then click on the name box near the controller variable in the animator component. An Animator window will appear. The sequence and the transition between animations can be controlled in this window. For now, the body executes a single translation animation. Each part of the legs executes a translation-rotation animation. The right hind and front left legs of the robot execute an idle animation before executing the translation-rotation animation in order to simulate a phase difference. 
+
+To edit an animation individually, the user can open the animation window (Ctrl+6 hotkey). In there, animations can be created and edited via the Dopesheet or the Curves tab. More information on creating and editing animations in the Unity Development Platform are provided here: \cite{jonas_tyroller_how_2019} \cite{noauthor_learn_nodate}.
 
 \section{How it was made}
 
@@ -323,13 +333,15 @@ To determine the ideal position and rotation of the sensors on the laelaps robot
   \hline
   3 & The view radius of the robot should be large enough for the robot to detect obstacles early enough to avoid them. \\ 
   \hline
-  4 & The vision of the robot should not be heavily impaired under adverse weather or lighting conditions. \\ 
+  4 & The view radius of the robot should be large enough for the robot to detect obstacles early enough to avoid them. \\ 
   \hline
-  5 & The 3D perception system should be capable of distinguishing visual features and areas of interest in ranges of at least up to two meters.  \\ 
+  5 & The vision of the robot should not be heavily impaired under adverse weather or lighting conditions. \\ 
   \hline
-  6 & The 3D perception system should be capable of mapping ground terrain well enough to distinguish incline and ground uneveness or irregularities which should be avoided. \\ 
+  6 & The 3D perception system should be capable of distinguishing visual features and areas of interest in ranges of at least up to two meters.  \\ 
   \hline
-  7 & The 3D perception system should be capable of mapping whole vines and similar plants which can reach more than a meter in height. \\ 
+  7 & The update rate of the sensors of the perception system should be high enough to allow for fast perception in all directions. \\ 
+  \hline
+  8 & The 3D perception system should be capable of mapping whole vines and similar plants which can reach a little more than a meter in height. \\ 
   \hline
 \end{tabular}
 \caption{Summary of 3D perception system requirements.}
@@ -344,7 +356,7 @@ With these requirements in mind, seven different sensor configurations for the l
 \item Laelaps with 2x Zed2 Cameras \cite{noauthor_zed_nodate} and a Velarray M1600 Lidar \cite{noauthor_velarray_nodate}.
 
 This option offers a large observation area covering the whole front and sides of the robot, with small and not substantial blind spots (Figure 14). However, there is no view from the back of the robot, which could be useful in case the performs maneuvers which require it to move backwards. An extra Zed2 stereo camera could be added at the back of the robot providing the setup with a near 360$^{\circ}$ field of view.
-In terms of energy efficiency, this setup is lightweight and efficient. The ZED2 cameras consume a mere 1.9W each \cite{stereolabs_zed2-camera-datasheet_nodate} while the Velarray M1600 Lidar, being a solid state lidar with no moving parts, needs 11 W \cite{velodyne_lidar_robotics_2022} at most to be fully operational. Combining lidars and depth cameras allows for versatility even in adverse weather or lighting conditions. Lidars do not require external light sources to operate and their functionality is not affected by changes in lighting conditions. Cameras on the other hand are generally not as susceptible to rain, fog or dust as lidars. They can also map reflective surfaces with more accuracy than lidars. However, given that the field of view of the cameras does not overlap with the field of view of the lidar, if a sensor underperforms then the whole system is affected. 
+In terms of energy efficiency, this setup is lightweight and efficient. The ZED2 cameras consume a mere 1.9W each \cite{stereolabs_zed2-camera-datasheet_nodate} while the Velarray M1600 Lidar, being a solid state lidar with no moving parts, needs 11 W \cite{velodyne_lidar_robotics_2022} at most to be fully operational. In addition, the update rate of solid state lidars is typically higher than that of conventional lidars. Conventional lidars are sometimes slow to perceive in all directions. The limitations are clear in state-of-the-art robot platforms such as those that participated in the DARPA Robotics Challenge in 2017 (DRC 2017), which had slow update rate as reported by some of the teams \cite{brandao_placing_2020}. The M1600 can manage a 25Hz refresh rate which is higher than its conventional lidar counterparts. Furthermore, combining lidars and depth cameras allows for versatility even in adverse weather or lighting conditions. Lidars do not require external light sources to operate and their functionality is not affected by changes in lighting conditions. Cameras on the other hand are generally not as susceptible to rain, fog or dust as lidars. They can also map reflective surfaces with more accuracy than lidars. However, given that the field of view of the cameras does not overlap with the field of view of the lidar, if a sensor underperforms then the whole system is affected. 
 
 \begin{figure}
 \centering
